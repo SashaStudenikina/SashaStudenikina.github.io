@@ -1,125 +1,139 @@
-body {
+* {
+    box-sizing: border-box;
     margin: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    background-color: #c7b7a3; /* Черный фон для контраста */
-    position: relative;
+    padding: 0;
 }
 
-.calculator-container {
-    max-width: 600px;
-    min-height: 250px;
-    margin: auto;
-    padding: 20px;
+body {
+    font-family: 'lato';
+    background-color: black;
+    height: 100%;
+    overflow: hidden;
     display: flex;
-    flex-direction: column;
-    color:#c7b7a3;
-    background-color: rgba(60, 0, 8, 0.5); /* Полупрозрачный фон цвета #3c0008 */
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    z-index: 10;
+    align-items: center;
+    justify-content: center;
+}
+
+#bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
 }
 
 h1 {
-    font-size: 24px;
+    user-select: none;
+    color: #53ecec;
+    font-size:48px;
+    text-transform: uppercase;
+    text-align: center;
+    padding-top: 8rem;
+    z-index: 9999;
+    line-height:1em;
+    font-weight:bold;
+    animation: animate1 1s ease-in-out infinite alternate;
+    text-shadow: 1px 1px 1px #919191,
+    1px 2px 1px #919191,
+    1px 3px 1px #919191,
+    1px 4px 1px #919191,
+    1px 5px 1px #919191,
+    1px 18px 6px rgba(16,16,16,0.3);
+    
+}
+
+@keyframes animate1 {
+    from {
+        text-shadow: 0 0 20px #289aab;
+    }
+    to {
+        text-shadow: 0 0 30px #289aab,
+                    0 0 10px #289aab;
+    }
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+}
+
+@keyframes animate2 {
+    from {
+        text-shadow: 0 0 6px #eb7a9e;
+    }
+    to {
+        text-shadow: 0 0 8px #eb7a9e,
+                    0 0 3px #eb7a9e;
+    }
 }
 
 label {
     display: block;
-    margin-top: 10px;
+    user-select: none;
+    margin-top: 20px;
+    display: block;
+    color: #e8638e;
+    font-family: 'lato';
+    font-size: 24px;
+    animation: animate2 2s ease-in-out infinite alternate;
+    
+}
+
+input, select, button {
+    width: 100%;
+    user-select: none;  
+    padding: 10px;
+    margin-top: 5px;
+    color: #e8638e;
+    font-family: 'lato';
+    background-color: #fff5ee;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input, select {
+    font-size: 18px;
+}
+
+input::placeholder {
+    color: #e8638e; /* Замените на нужный вам цвет */
+    opacity: 1; /* Установите прозрачность (по умолчанию 0.5) */
 }
 
 button {
-    background-color: #470202;
-    border-radius: 20px;
-    border: none;
-    padding: 15px;
-    color: bisque;
-    margin: 20px;
+    margin-top: 20px;
+    animation: animate2 2s ease-in-out infinite alternate;
+    font-size: 28px;
+    border-radius: 35px;
+    font-weight:bold;
 }
 
 button:hover {
-    background-color: #742c2c; /* Цвет кнопки при наведении */
+    opacity: 0.95; /* Уменьшаем непрозрачность при наведении */
 }
 
-#result {
-    margin-top: 10px;
+button:active {
+    border: 2px solid #6bdcee; /* Изменение границы при нажатии */
+}
+
+.result {
+    margin-top: 20px;
     font-weight: bold;
-    font-size: 20px;
-    padding: 10px;
+    font-size: 28px;
+    color: #53ecec;
+    text-align: center;
+    animation: animate1 2s ease-in-out infinite alternate;
 }
 
-/* Стили для выпадающего списка и поля ввода */
-select,
-input[type="number"] {
-    width: calc(100% - 20px); /* Ширина с учетом отступов */
-    padding: 10px; /* Отступы внутри полей */
-    margin-top: 5px; /* Отступ сверху */
-    border-radius: 5px; /* Скругленные углы */
-    background-color: rgba(255, 255, 255, 0.2); /* Полупрозрачный фон для полей */
-    color: white; /* Цвет текста внутри полей */
-}
-/* Стили для опций в выпадающем списке */
-select option {
-    color: white; /* Цвет текста опции */
-    background-color: #3c0008; /* Цвет фона опции */
-}
-
-.heart {
-    position: absolute;
-    width: 50px; /* Ширина сердца */
-    height: 50px; /* Высота сердца */
-    background-color: red; /* Цвет сердца */
-    transform: rotate(45deg); /* Поворачиваем квадрат на 45 градусов */
-}
-
-.heart::before,
-.heart::after {
-    content: ""; /* Обязательное свойство для псевдоэлементов */
-    position: absolute;
-    width: 50px; /* Ширина кругов */
-    height: 50px; /* Высота кругов */
-    background-color: red; /* Цвет кругов */
-    border-radius: 50%; /* Делаем круги */
-}
-
-.heart::before {
-    top: -25px; /* Сдвигаем верхний круг вверх */
-    left: 0; /* Центрируем по горизонтали */
-}
-
-.heart::after {
-    left: 25px; /* Сдвигаем правый круг вправо */
-    top: 0; /* Центрируем по вертикали */
-}
-
-@keyframes float {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1) rotate(-45deg); } /* Сохраняем поворот */
-    50% { transform: scale(1.3) rotate(-45deg); } /* Сохраняем поворот */
-}
-
-@keyframes fadeOut {
-    from {
-        opacity: 1;
-        transform: scale(1) rotate(-45deg); /* Сохраняем поворот при исчезновении */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px; /* Уменьшаем отступы на мобильных */
     }
-    to {
-        opacity: 0;
-        transform: scale(1) rotate(-45deg); /* Сохраняем поворот при исчезновении */
+    input, select, button {
+        padding: 8px; /* Уменьшаем внутренние отступы на мобильных */
     }
 }
 
-.heart {
-    animation: pulse 2s infinite ease-in-out;
-}
 
