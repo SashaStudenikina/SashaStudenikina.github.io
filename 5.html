@@ -1,34 +1,35 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task 5</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-
-    <div class="calculator-container">
-        <h1>Калькулятор стоимости товаров</h1>
+    <div id = "bg"></div>
+    <div class="container">
+        <h1>Калькулятор стоимости заказа</h1>
         
+        <label for="quantity">Количество товара:</label>
+        <input type="number" id="quantity" placeholder="Введите количество" min="1">
+    
         <label for="product">Выберите товар:</label>
         <select id="product">
-            <option value="99.99">Товар 1 - 99.99 руб.</option>
-            <option value="199.99">Товар 2 - 199.99 руб.</option>
-            <option value="299.99">Товар 3 - 299.99 руб.</option>
-            <option value="399.99">Товар 4 - 399.99 руб.</option>
-            <option value="499.99">Товар 5 - 499.99 руб.</option>
+            <option value="0">Выберите товар</option>
+            <option value="1600">Концерт Toxi$ - 1600 руб.</option>
+            <option value="1300">Концерт Bushido Zho- 1300 руб.</option>
+            <option value="1900">Концерт OG Buda- 1900 руб.</option>
+            <option value="1100">Концерт Big Baby Tape - 1100 руб.</option>
+            <option value="5000">Концерт Morgenshtern - 5000 руб.</option>
         </select>
-
-        <label for="quantity">Количество:</label>
-        <input type="number" id="quantity" min="0" placeholder="Введите количество">
-
-        <button id="calculateButton">Посчитать</button>
-
-        <div id="result"></div>
+    
+        <button id="calculate">Посчитать стоимость</button>
+    
+        <div class="result" id="result"></div>
     </div>
-
-    <script src="script.js"></script>
-
+    <script type="text/javascript" src="js/particles.min.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
