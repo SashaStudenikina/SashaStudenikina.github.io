@@ -1,4 +1,3 @@
-/* Общие стили */
 body {
     margin: 0;
     height: 100vh;
@@ -119,3 +118,8 @@ select option {
         transform: scale(1) rotate(-45deg); /* Сохраняем поворот при исчезновении */
     }
 }
+
+.heart {
+    animation: pulse 2s infinite ease-in-out;
+}
+
